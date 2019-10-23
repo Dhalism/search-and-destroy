@@ -5,18 +5,17 @@ const isLoop = (linkedlist) => {
   let dict = {}
   let slow = linkedlist.head
   let fast = linkedlist.head
-  let counter = 0
-  let dictvals = Object.values(dict)
+  let counter = 1
+  let previousslow
+  dict[1] = linkedlist.head
+  let dictvalues = Object.values(dict)
  do{
-    counter++
-    //console.log('dict ', dict)
-    if (slow in dictvals){
-      console.log('slow ', slow)
+
+   console.log('value', slow.value, fast.value)
+    if (slow.next.previous!==slow){
+      console.log('slow', slow)
+
     }
-
-    dict[counter] = slow
-    dictvals = Object.values(dict)
-
 
     slow = slow.next
     fast = fast.next.next
@@ -25,7 +24,7 @@ const isLoop = (linkedlist) => {
       return false
     }
   } while(fast !== slow)
-
+  console.log('value', slow.value, fast.value)
   return true
   // let dict = { }
   // dict[linkedlist.head.value] = linkedlist.head.value
